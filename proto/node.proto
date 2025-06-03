@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package node;
+
+service NodeService {
+  rpc Ping(Empty) returns (Pong);
+  rpc SendMessage(Message) returns (Ack);
+}
+
+message Empty {}
+
+message Pong {
+  string msg = 1;
+}
+
+message Message {
+  string content = 1;
+}
+
+message Ack {
+  bool success = 1;
+}
