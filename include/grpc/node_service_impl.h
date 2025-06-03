@@ -1,5 +1,5 @@
 #pragma once
-#include "node.grpc.pb.h"
+#include "../../proto/node.grpc.pb.h"
 
 class NodeServiceImpl final : public node::NodeService::Service {
 public:

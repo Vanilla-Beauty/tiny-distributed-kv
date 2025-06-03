@@ -1,4 +1,4 @@
-#include "node_service_impl.h"
+#include "../../include/grpc/node_service_impl.h"
 #include <iostream>
 
 grpc::Status NodeServiceImpl::Ping(grpc::ServerContext *, const node::Empty *,

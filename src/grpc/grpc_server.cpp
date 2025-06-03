@@ -1,4 +1,4 @@
-#include "node_service_impl.h"
+#include "../../include/grpc/node_service_impl.h"
 #include <grpcpp/grpcpp.h>
 #include <iostream>
 

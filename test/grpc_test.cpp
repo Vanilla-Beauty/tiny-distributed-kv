@@ -1,7 +1,4 @@
-#include "../src/grpc_server.h"
-#include "../src/node.grpc.pb.h"
-#include "../src/node.pb.h"
-#include "../src/node_service_impl.h"
+#include "../include/grpc/grpc_server.h"
 #include <gtest/gtest.h>
 #include <thread>
 
