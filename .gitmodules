@@ -1,0 +1,3 @@
+[submodule "3rd_party/tiny-lsm"]
+	path = 3rd_party/tiny-lsm
+	url = https://github.com/Vanilla-Beauty/tiny-lsm.git
