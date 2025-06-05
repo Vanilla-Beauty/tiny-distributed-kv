@@ -1,12 +1,13 @@
 #include "../include/grpc/grpc_server.h"
+#include <chrono>
 #include <gtest/gtest.h>
 #include <thread>
 
-void RunTestServer() { RunServer("0.0.0.0:50051"); }
+void RunTestServer() { RunServer("localhost:50051"); }
 
 TEST(GrpcTest, Ping) {
   std::thread server_thread(RunTestServer);
-  std::this_thread::sleep_for(std::chrono::seconds(1)); // wait for server
+  std::this_thread::sleep_for(std::chrono::milliseconds(50)); // wait for server
 
   std::string response = PingClient("localhost:50051");
   EXPECT_EQ(response, "pong");

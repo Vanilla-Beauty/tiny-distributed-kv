@@ -4,9 +4,9 @@ set_version("0.1.0")
 set_languages("c++20")
 
 -- 2. 添加依赖
-add_requires("abseil", "protobuf-cpp", "grpc", "gtest")
+add_requires("abseil", "protobuf-cpp", "grpc", "gtest", "spdlog")
 
-add_subdirs("3rd_party/tiny-lsm")
+-- add_subdirs("3rd_party/tiny-lsm")
 
 -- 5. grpc_gen 静态库
 target("grpc_gen")
@@ -27,7 +27,7 @@ target("d_curp")
     add_files("src/curp/*.cpp")
     add_deps("d_utils", "grpc_gen")
     add_includedirs("include")
-    add_packages("abseil", "protobuf-cpp", "grpc")
+    add_packages("abseil", "protobuf-cpp", "grpc", "spdlog")
 
 
 -- 6. 单元测试
@@ -38,12 +38,12 @@ target("grpc_test")
     add_includedirs("include", "proto")
     add_packages("abseil", "protobuf-cpp", "grpc", "gtest")
 
-target("lsm_test")
-    set_kind("binary")
-    add_deps("lsm")
-    add_files("test/tiny_lsm_test.cpp")
-    add_includedirs("include")
-    add_packages("gtest")
+-- target("lsm_test")
+--     set_kind("binary")
+--     add_deps("lsm")
+--     add_files("test/tiny_lsm_test.cpp")
+--     add_includedirs("include")
+--     add_packages("gtest")
 
 target("utils_test")
     set_kind("binary")
@@ -51,3 +51,11 @@ target("utils_test")
     add_files("test/utils_test.cpp")
     add_includedirs("include")
     add_packages("gtest")
+
+target("raft_test")
+    set_kind("binary")
+    add_deps("d_curp")
+    -- add_deps("lsm")
+    add_files("test/raft_test.cpp")
+    add_includedirs("include")
+    add_packages("abseil", "protobuf-cpp", "grpc", "gtest")

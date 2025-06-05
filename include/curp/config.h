@@ -11,12 +11,11 @@ class NodeConfig {
   friend class RaftServiceImpl;
 
   std::string addr;
-  std::atomic<bool> is_running;
 
 public:
-  NodeConfig(std::string addr, bool is_running);
-  NodeConfig(const NodeConfig &other)
-      : addr(other.addr), is_running(other.is_running.load()) {}
+  NodeConfig() = default;
+  NodeConfig(std::string addr) : addr(std::move(addr)) {};
+  NodeConfig(const NodeConfig &other) : addr(other.addr) {}
 
   void set_status();
 };

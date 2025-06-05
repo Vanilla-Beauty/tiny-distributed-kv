@@ -1,381 +1,66 @@
 [
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_curp/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/release/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/d_curp/linux/x86_64/release/src/curp/raft.cpp.o", "src/curp/raft.cpp"],
-  "file": "src/curp/raft.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_curp/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/release/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/d_curp/linux/x86_64/release/src/curp/raft_rpc.cpp.o", "src/curp/raft_rpc.cpp"],
-  "file": "src/curp/raft_rpc.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_skiplist/linux/x86_64/release/3rd_party/tiny-lsm/test/test_skiplist.cpp.o", "3rd_party/tiny-lsm/test/test_skiplist.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_skiplist.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_config/linux/x86_64/release/3rd_party/tiny-lsm/test/test_config.cpp.o", "3rd_party/tiny-lsm/test/test_config.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_config.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/wal/linux/x86_64/release/3rd_party/tiny-lsm/src/wal/record.cpp.o", "3rd_party/tiny-lsm/src/wal/record.cpp"],
-  "file": "3rd_party/tiny-lsm/src/wal/record.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/wal/linux/x86_64/release/3rd_party/tiny-lsm/src/wal/wal.cpp.o", "3rd_party/tiny-lsm/src/wal/wal.cpp"],
-  "file": "3rd_party/tiny-lsm/src/wal/wal.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/lsm_test/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/lsm_test/linux/x86_64/release/test/tiny_lsm_test.cpp.o", "test/tiny_lsm_test.cpp"],
-  "file": "test/tiny_lsm_test.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/iterator/linux/x86_64/release/3rd_party/tiny-lsm/src/iterator/iterator.cpp.o", "3rd_party/tiny-lsm/src/iterator/iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/iterator/iterator.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/utils/linux/x86_64/release/3rd_party/tiny-lsm/src/utils/files.cpp.o", "3rd_party/tiny-lsm/src/utils/files.cpp"],
-  "file": "3rd_party/tiny-lsm/src/utils/files.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/utils/linux/x86_64/release/3rd_party/tiny-lsm/src/utils/std_file.cpp.o", "3rd_party/tiny-lsm/src/utils/std_file.cpp"],
-  "file": "3rd_party/tiny-lsm/src/utils/std_file.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/utils/linux/x86_64/release/3rd_party/tiny-lsm/src/utils/mmap_file.cpp.o", "3rd_party/tiny-lsm/src/utils/mmap_file.cpp"],
-  "file": "3rd_party/tiny-lsm/src/utils/mmap_file.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/utils/linux/x86_64/release/3rd_party/tiny-lsm/src/utils/bloom_filter.cpp.o", "3rd_party/tiny-lsm/src/utils/bloom_filter.cpp"],
-  "file": "3rd_party/tiny-lsm/src/utils/bloom_filter.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/server/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/redis/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/m/muduo/2022.11.01/e9382a25649e4e43bf04f01f925d9c2f/include", "-isystem", "/home/toni/.xmake/packages/b/boost/1.88.0/575e5861696c430fbff08b1577c44d7c/include", "-DNDEBUG", "-o", "build/.objs/server/linux/x86_64/release/3rd_party/tiny-lsm/server/src/handler.cpp.o", "3rd_party/tiny-lsm/server/src/handler.cpp"],
-  "file": "3rd_party/tiny-lsm/server/src/handler.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/server/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/redis/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/m/muduo/2022.11.01/e9382a25649e4e43bf04f01f925d9c2f/include", "-isystem", "/home/toni/.xmake/packages/b/boost/1.88.0/575e5861696c430fbff08b1577c44d7c/include", "-DNDEBUG", "-o", "build/.objs/server/linux/x86_64/release/3rd_party/tiny-lsm/server/src/server.cpp.o", "3rd_party/tiny-lsm/server/src/server.cpp"],
-  "file": "3rd_party/tiny-lsm/server/src/server.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm/linux/x86_64/release/3rd_party/tiny-lsm/src/lsm/transation.cpp.o", "3rd_party/tiny-lsm/src/lsm/transation.cpp"],
-  "file": "3rd_party/tiny-lsm/src/lsm/transation.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm/linux/x86_64/release/3rd_party/tiny-lsm/src/lsm/engine.cpp.o", "3rd_party/tiny-lsm/src/lsm/engine.cpp"],
-  "file": "3rd_party/tiny-lsm/src/lsm/engine.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm/linux/x86_64/release/3rd_party/tiny-lsm/src/lsm/two_merge_iterator.cpp.o", "3rd_party/tiny-lsm/src/lsm/two_merge_iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/lsm/two_merge_iterator.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm/linux/x86_64/release/3rd_party/tiny-lsm/src/lsm/level_iterator.cpp.o", "3rd_party/tiny-lsm/src/lsm/level_iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/lsm/level_iterator.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/debug/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-DNDEBUG", "-o", "build/.objs/debug/linux/x86_64/release/3rd_party/tiny-lsm/example/debug.cpp.o", "3rd_party/tiny-lsm/example/debug.cpp"],
-  "file": "3rd_party/tiny-lsm/example/debug.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/config/linux/x86_64/release/3rd_party/tiny-lsm/src/config/config.cpp.o", "3rd_party/tiny-lsm/src/config/config.cpp"],
-  "file": "3rd_party/tiny-lsm/src/config/config.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/utils_test/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/utils_test/linux/x86_64/release/test/utils_test.cpp.o", "test/utils_test.cpp"],
-  "file": "test/utils_test.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/redis/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/redis/linux/x86_64/release/3rd_party/tiny-lsm/src/redis_wrapper/redis_wrapper.cpp.o", "3rd_party/tiny-lsm/src/redis_wrapper/redis_wrapper.cpp"],
-  "file": "3rd_party/tiny-lsm/src/redis_wrapper/redis_wrapper.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/release/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/release/src/grpc/node_service_impl.cpp.o", "src/grpc/node_service_impl.cpp"],
-  "file": "src/grpc/node_service_impl.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/release/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/release/src/grpc/grpc_server.cpp.o", "src/grpc/grpc_server.cpp"],
-  "file": "src/grpc/grpc_server.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/release/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/release/proto/raft.grpc.pb.cc.o", "proto/raft.grpc.pb.cc"],
-  "file": "proto/raft.grpc.pb.cc"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/release/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/release/proto/raft.pb.cc.o", "proto/raft.pb.cc"],
-  "file": "proto/raft.pb.cc"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/release/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/release/proto/node.pb.cc.o", "proto/node.pb.cc"],
-  "file": "proto/node.pb.cc"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/release/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/release/proto/node.grpc.pb.cc.o", "proto/node.grpc.pb.cc"],
-  "file": "proto/node.grpc.pb.cc"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_block_cache/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_block_cache/linux/x86_64/release/3rd_party/tiny-lsm/test/test_block_cache.cpp.o", "3rd_party/tiny-lsm/test/test_block_cache.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_block_cache.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_blockmeta/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_blockmeta/linux/x86_64/release/3rd_party/tiny-lsm/test/test_blockmeta.cpp.o", "3rd_party/tiny-lsm/test/test_blockmeta.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_blockmeta.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/logger/linux/x86_64/release/3rd_party/tiny-lsm/src/logger/logger.cpp.o", "3rd_party/tiny-lsm/src/logger/logger.cpp"],
-  "file": "3rd_party/tiny-lsm/src/logger/logger.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_utils/linux/x86_64/release/platform/windows/idl", "-o", "build/.objs/d_utils/linux/x86_64/release/src/utils/utils.cpp.o", "src/utils/utils.cpp"],
-  "file": "src/utils/utils.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_utils/linux/x86_64/release/platform/windows/idl", "-o", "build/.objs/d_utils/linux/x86_64/release/src/utils/timer.cpp.o", "src/utils/timer.cpp"],
-  "file": "src/utils/timer.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_utils/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_utils/linux/x86_64/release/3rd_party/tiny-lsm/test/test_utils.cpp.o", "3rd_party/tiny-lsm/test/test_utils.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_utils.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/block/linux/x86_64/release/3rd_party/tiny-lsm/src/block/block.cpp.o", "3rd_party/tiny-lsm/src/block/block.cpp"],
-  "file": "3rd_party/tiny-lsm/src/block/block.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/block/linux/x86_64/release/3rd_party/tiny-lsm/src/block/blockmeta.cpp.o", "3rd_party/tiny-lsm/src/block/blockmeta.cpp"],
-  "file": "3rd_party/tiny-lsm/src/block/blockmeta.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/block/linux/x86_64/release/3rd_party/tiny-lsm/src/block/block_cache.cpp.o", "3rd_party/tiny-lsm/src/block/block_cache.cpp"],
-  "file": "3rd_party/tiny-lsm/src/block/block_cache.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/block/linux/x86_64/release/3rd_party/tiny-lsm/src/block/block_iterator.cpp.o", "3rd_party/tiny-lsm/src/block/block_iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/block/block_iterator.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/skiplist/linux/x86_64/release/3rd_party/tiny-lsm/src/skiplist/skipList.cpp.o", "3rd_party/tiny-lsm/src/skiplist/skipList.cpp"],
-  "file": "3rd_party/tiny-lsm/src/skiplist/skipList.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_test/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/release/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_test/linux/x86_64/release/test/grpc_test.cpp.o", "test/grpc_test.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_test/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_test/linux/x86_64/debug/test/grpc_test.cpp.o", "test/grpc_test.cpp"],
   "file": "test/grpc_test.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_block/linux/x86_64/release/3rd_party/tiny-lsm/test/test_block.cpp.o", "3rd_party/tiny-lsm/test/test_block.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_block.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-o", "build/.objs/d_utils/linux/x86_64/debug/src/utils/utils.cpp.o", "src/utils/utils.cpp"],
+  "file": "src/utils/utils.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_redis/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/redis/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_redis/linux/x86_64/release/3rd_party/tiny-lsm/test/test_redis.cpp.o", "3rd_party/tiny-lsm/test/test_redis.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_redis.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-o", "build/.objs/d_utils/linux/x86_64/debug/src/utils/timer.cpp.o", "src/utils/timer.cpp"],
+  "file": "src/utils/timer.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_wal/linux/x86_64/release/3rd_party/tiny-lsm/test/test_wal.cpp.o", "3rd_party/tiny-lsm/test/test_wal.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_wal.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_curp/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-o", "build/.objs/d_curp/linux/x86_64/debug/src/curp/raft.cpp.o", "src/curp/raft.cpp"],
+  "file": "src/curp/raft.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/example/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-DNDEBUG", "-o", "build/.objs/example/linux/x86_64/release/3rd_party/tiny-lsm/example/main.cpp.o", "3rd_party/tiny-lsm/example/main.cpp"],
-  "file": "3rd_party/tiny-lsm/example/main.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_curp/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-o", "build/.objs/d_curp/linux/x86_64/debug/src/curp/raft_rpc.cpp.o", "src/curp/raft_rpc.cpp"],
+  "file": "src/curp/raft_rpc.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/memtable/linux/x86_64/release/3rd_party/tiny-lsm/src/memtable/memtable.cpp.o", "3rd_party/tiny-lsm/src/memtable/memtable.cpp"],
-  "file": "3rd_party/tiny-lsm/src/memtable/memtable.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/debug/src/grpc/node_service_impl.cpp.o", "src/grpc/node_service_impl.cpp"],
+  "file": "src/grpc/node_service_impl.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_compact/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_compact/linux/x86_64/release/3rd_party/tiny-lsm/test/test_compact.cpp.o", "3rd_party/tiny-lsm/test/test_compact.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_compact.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/debug/src/grpc/grpc_server.cpp.o", "src/grpc/grpc_server.cpp"],
+  "file": "src/grpc/grpc_server.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-Ibuild/.gens/lsm_pybind/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-DTINYLSM_EXPORT=__attribute__((visibility(\"default\")))", "-isystem", "/home/toni/.xmake/packages/p/pybind11/v2.13.6/8d7565588f4b45f7a0635954fd1f2205/include", "-isystem", "/home/toni/miniconda3/include/python3.12", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-fvisibility=hidden", "-DNDEBUG", "-o", "build/.objs/lsm_pybind/linux/x86_64/release/3rd_party/tiny-lsm/sdk/lsm_pybind.cpp.o", "3rd_party/tiny-lsm/sdk/lsm_pybind.cpp"],
-  "file": "3rd_party/tiny-lsm/sdk/lsm_pybind.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/debug/proto/raft.grpc.pb.cc.o", "proto/raft.grpc.pb.cc"],
+  "file": "proto/raft.grpc.pb.cc"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_memtable/linux/x86_64/release/3rd_party/tiny-lsm/test/test_memtable.cpp.o", "3rd_party/tiny-lsm/test/test_memtable.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_memtable.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/debug/proto/raft.pb.cc.o", "proto/raft.pb.cc"],
+  "file": "proto/raft.pb.cc"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/iterator/iterator.cpp.o", "3rd_party/tiny-lsm/src/iterator/iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/iterator/iterator.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/debug/proto/node.pb.cc.o", "proto/node.pb.cc"],
+  "file": "proto/node.pb.cc"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/config/config.cpp.o", "3rd_party/tiny-lsm/src/config/config.cpp"],
-  "file": "3rd_party/tiny-lsm/src/config/config.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_gen/linux/x86_64/debug/proto/node.grpc.pb.cc.o", "proto/node.grpc.pb.cc"],
+  "file": "proto/node.grpc.pb.cc"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/sst/sst_iterator.cpp.o", "3rd_party/tiny-lsm/src/sst/sst_iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/sst/sst_iterator.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/raft_test/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_curp/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/raft_test/linux/x86_64/debug/test/raft_test.cpp.o", "test/raft_test.cpp"],
+  "file": "test/raft_test.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/sst/sst.cpp.o", "3rd_party/tiny-lsm/src/sst/sst.cpp"],
-  "file": "3rd_party/tiny-lsm/src/sst/sst.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/sst/concact_iterator.cpp.o", "3rd_party/tiny-lsm/src/sst/concact_iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/sst/concact_iterator.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/logger/logger.cpp.o", "3rd_party/tiny-lsm/src/logger/logger.cpp"],
-  "file": "3rd_party/tiny-lsm/src/logger/logger.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/skiplist/skipList.cpp.o", "3rd_party/tiny-lsm/src/skiplist/skipList.cpp"],
-  "file": "3rd_party/tiny-lsm/src/skiplist/skipList.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/wal/record.cpp.o", "3rd_party/tiny-lsm/src/wal/record.cpp"],
-  "file": "3rd_party/tiny-lsm/src/wal/record.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/wal/wal.cpp.o", "3rd_party/tiny-lsm/src/wal/wal.cpp"],
-  "file": "3rd_party/tiny-lsm/src/wal/wal.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/block/block.cpp.o", "3rd_party/tiny-lsm/src/block/block.cpp"],
-  "file": "3rd_party/tiny-lsm/src/block/block.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/block/blockmeta.cpp.o", "3rd_party/tiny-lsm/src/block/blockmeta.cpp"],
-  "file": "3rd_party/tiny-lsm/src/block/blockmeta.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/block/block_cache.cpp.o", "3rd_party/tiny-lsm/src/block/block_cache.cpp"],
-  "file": "3rd_party/tiny-lsm/src/block/block_cache.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/block/block_iterator.cpp.o", "3rd_party/tiny-lsm/src/block/block_iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/block/block_iterator.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/redis_wrapper/redis_wrapper.cpp.o", "3rd_party/tiny-lsm/src/redis_wrapper/redis_wrapper.cpp"],
-  "file": "3rd_party/tiny-lsm/src/redis_wrapper/redis_wrapper.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/lsm/transation.cpp.o", "3rd_party/tiny-lsm/src/lsm/transation.cpp"],
-  "file": "3rd_party/tiny-lsm/src/lsm/transation.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/lsm/engine.cpp.o", "3rd_party/tiny-lsm/src/lsm/engine.cpp"],
-  "file": "3rd_party/tiny-lsm/src/lsm/engine.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/lsm/two_merge_iterator.cpp.o", "3rd_party/tiny-lsm/src/lsm/two_merge_iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/lsm/two_merge_iterator.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/lsm/level_iterator.cpp.o", "3rd_party/tiny-lsm/src/lsm/level_iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/lsm/level_iterator.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/utils/files.cpp.o", "3rd_party/tiny-lsm/src/utils/files.cpp"],
-  "file": "3rd_party/tiny-lsm/src/utils/files.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/utils/std_file.cpp.o", "3rd_party/tiny-lsm/src/utils/std_file.cpp"],
-  "file": "3rd_party/tiny-lsm/src/utils/std_file.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/utils/mmap_file.cpp.o", "3rd_party/tiny-lsm/src/utils/mmap_file.cpp"],
-  "file": "3rd_party/tiny-lsm/src/utils/mmap_file.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/utils/bloom_filter.cpp.o", "3rd_party/tiny-lsm/src/utils/bloom_filter.cpp"],
-  "file": "3rd_party/tiny-lsm/src/utils/bloom_filter.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fPIC", "-O3", "-std=c++20", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/lsm_shared/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/lsm_shared/linux/x86_64/release/3rd_party/tiny-lsm/src/memtable/memtable.cpp.o", "3rd_party/tiny-lsm/src/memtable/memtable.cpp"],
-  "file": "3rd_party/tiny-lsm/src/memtable/memtable.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_sst/linux/x86_64/release/3rd_party/tiny-lsm/test/test_sst.cpp.o", "3rd_party/tiny-lsm/test/test_sst.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_sst.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/sst/linux/x86_64/release/3rd_party/tiny-lsm/src/sst/sst_iterator.cpp.o", "3rd_party/tiny-lsm/src/sst/sst_iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/sst/sst_iterator.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/sst/linux/x86_64/release/3rd_party/tiny-lsm/src/sst/sst.cpp.o", "3rd_party/tiny-lsm/src/sst/sst.cpp"],
-  "file": "3rd_party/tiny-lsm/src/sst/sst.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/sst/linux/x86_64/release/3rd_party/tiny-lsm/src/sst/concact_iterator.cpp.o", "3rd_party/tiny-lsm/src/sst/concact_iterator.cpp"],
-  "file": "3rd_party/tiny-lsm/src/sst/concact_iterator.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++20", "-Ibuild/.gens/test_lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/lsm/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/wal/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/logger/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/memtable/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/skiplist/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/sst/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/block/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/config/linux/x86_64/release/platform/windows/idl", "-Ibuild/.gens/utils/linux/x86_64/release/platform/windows/idl", "-I3rd_party/tiny-lsm/include", "-Ibuild/.gens/iterator/linux/x86_64/release/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/t/toml11/v4.4.0/d9b5d9555a9849b0a8e5714c4e66d566/include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-DNDEBUG", "-o", "build/.objs/test_lsm/linux/x86_64/release/3rd_party/tiny-lsm/test/test_lsm.cpp.o", "3rd_party/tiny-lsm/test/test_lsm.cpp"],
-  "file": "3rd_party/tiny-lsm/test/test_lsm.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/utils_test/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/utils_test/linux/x86_64/debug/test/utils_test.cpp.o", "test/utils_test.cpp"],
+  "file": "test/utils_test.cpp"
 }]

@@ -26,8 +26,7 @@ public:
                            raft::RequestVoteReply *reply) override;
 
   bool GetVoteAnswer(const std::string &address,
-                     const raft::RequestVoteArgs &request,
-                     raft::RequestVoteReply *reply);
+                     const raft::RequestVoteArgs &request);
 
 private:
   void StartServer();
@@ -36,4 +35,7 @@ private:
 private:
   std::shared_ptr<RaftNode> raft_node;
   std::thread server_thread_;
+  std::unordered_map<std::string, std::shared_ptr<raft::Raft::Stub>>
+      stub_cache_;
+  std::mutex stub_cache_mtx_;
 };

@@ -1,6 +1,6 @@
 #include "../include/utils/timer.h"
 #include <gtest/gtest.h>
-TEST(DUtils_Test, ResettableTimer) {
+TEST(DUtils_Test, TimerBasic) {
   Timer t;
 
   std::thread ticker([&]() {
@@ -21,6 +21,17 @@ TEST(DUtils_Test, ResettableTimer) {
   std::cout << "Stop timer\n";
   t.stop();
   ticker.join();
+}
+
+TEST(DUtils_Test, TimerInitWithZero) {
+  Timer t;
+  std::cout << "Reset timer with zero delay\n";
+  t.wait(); // 等待直到定时器超时
+  std::cout << "Timer expired immediately\n";
+
+  t.reset(std::chrono::milliseconds(1000)); // 重置定时器为1秒
+  t.wait();
+  std::cout << "Timer expired after 1 second\n";
 }
 
 int main(int argc, char **argv) {

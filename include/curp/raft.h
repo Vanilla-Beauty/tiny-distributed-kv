@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../3rd_party/tiny-lsm/include/lsm/engine.h"
+// #include "../../3rd_party/tiny-lsm/include/lsm/engine.h"
 #include "../../include/curp/raft_rpc.h"
 #include "../../include/utils/timer.h"
 #include "config.h"
@@ -12,6 +12,8 @@
 #include <vector>
 
 enum class RaftState { FOLLOWER, CANDIDATE, LEADER };
+
+std::string RaftStateToString(const RaftState &state);
 
 class Entry {
   std::string key;
@@ -37,7 +39,7 @@ class RaftNode : public std::enable_shared_from_this<RaftNode> {
   std::shared_ptr<RaftServiceImpl> raft_service_impl;
   std::mutex mtx;
   std::vector<NodeConfig> cluster_configs;
-  std::shared_ptr<tiny_lsm::LSM> store_engine;
+  // std::shared_ptr<tiny_lsm::LSM> store_engine;
   std::string store_path;
   uint64_t cur_node_id;
   std::atomic<bool> is_dead;
@@ -57,20 +59,32 @@ class RaftNode : public std::enable_shared_from_this<RaftNode> {
   uint64_t lastIncludedTerm;  // 日志中的最高Term
 
   Timer voteTimer;
+  Timer heartTimer;
 
 public:
+  static std::shared_ptr<RaftNode>
+  Create(std::vector<NodeConfig> cluster_configs, std::string store_path,
+         uint64_t cur_node_id);
+
+  enum RaftState getRole();
+
+private:
   RaftNode(std::vector<NodeConfig> cluster_configs, std::string store_path,
            uint64_t cur_node_id);
 
-private:
   void checkVote();
   void ticker();
-  void elect();
+  void Elect();
   void persist();
+  void SendHeartBeats();
+
+  void start_ticker();
+
   void resetVoteTimer();
   void initVoteTimer();
   void collectVote(int config_id, raft::RequestVoteArgs args,
                    std::mutex &voteMtx, int &voteCount);
+  bool killed();
 
-  uint64_t virtualLogIdx(uint64_t physical_idx);
+  uint64_t VirtualLogIdx(uint64_t physical_idx);
 };
