@@ -1,4 +1,4 @@
-#include "../include/curp/raft.h"
+#include "../include/raft/raft.h"
 #include <chrono>
 #include <gtest/gtest.h>
 #include <memory>
@@ -9,7 +9,7 @@
 TEST(RaftElectionTest, BasicElection) {
   // 构造3个节点配置
   std::vector<NodeConfig> configs = {
-      {"localhost:7745"}, {"localhost:7746"}, {"localhost:7747"}};
+      {"localhost:8745"}, {"localhost:8746"}, {"localhost:8747"}};
 
   // 创建3个RaftNode实例（用shared_ptr管理）
   std::vector<std::shared_ptr<RaftNode>> nodes;
@@ -31,6 +31,12 @@ TEST(RaftElectionTest, BasicElection) {
   }
   EXPECT_EQ(leader_count, 1) << "应该有且只有一个leader";
   EXPECT_NE(leader_id, -1) << "必须有一个leader";
+
+  for (int i = 0; i < 3; ++i) {
+    nodes[i]->kill();
+  }
+
+  std::cout << "测试结束" << std::endl;
 }
 
 int main(int argc, char **argv) {

@@ -24,7 +24,7 @@ target("d_utils")
 
 target("d_curp")
     set_kind("static")
-    add_files("src/curp/*.cpp")
+    add_files("src/raft/*.cpp")
     add_deps("d_utils", "grpc_gen")
     add_includedirs("include")
     add_packages("abseil", "protobuf-cpp", "grpc", "spdlog")

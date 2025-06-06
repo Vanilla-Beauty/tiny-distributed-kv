@@ -1,7 +1,7 @@
 #pragma once
 
 // #include "../../3rd_party/tiny-lsm/include/lsm/engine.h"
-#include "../../include/curp/raft_rpc.h"
+#include "../../include/raft/raft_rpc.h"
 #include "../../include/utils/timer.h"
 #include "config.h"
 #include <atomic>
@@ -14,22 +14,6 @@
 enum class RaftState { FOLLOWER, CANDIDATE, LEADER };
 
 std::string RaftStateToString(const RaftState &state);
-
-class Entry {
-  std::string key;
-  std::string value;
-  uint64_t term;  // 日志条目的Term
-  uint64_t index; // 日志条目的索引
-public:
-  Entry(std::string key, std::string value, uint64_t term, uint64_t index)
-      : key(key), value(value), term(term), index(index) {}
-
-  // Getter methods for Entry
-  std::string get_key() const { return key; }
-  std::string get_value() const { return value; }
-  uint64_t get_term() const { return term; }
-  uint64_t get_index() const { return index; }
-};
 
 class RaftServiceImpl;
 
@@ -44,9 +28,9 @@ class RaftNode : public std::enable_shared_from_this<RaftNode> {
   uint64_t cur_node_id;
   std::atomic<bool> is_dead;
 
-  int currentTerm;        // 当前节点的Term
-  int votedFor;           // 当前节点投票给了哪个节点
-  std::vector<Entry> log; // 日志条目
+  int currentTerm;              // 当前节点的Term
+  int votedFor;                 // 当前节点投票给了哪个节点
+  std::vector<raft::Entry> log; // 日志条目
 
   std::vector<uint64_t> nextIndex;
   std::vector<uint64_t> matchIndex;
@@ -62,11 +46,14 @@ class RaftNode : public std::enable_shared_from_this<RaftNode> {
   Timer heartTimer;
 
 public:
+  ~RaftNode();
+
   static std::shared_ptr<RaftNode>
   Create(std::vector<NodeConfig> cluster_configs, std::string store_path,
          uint64_t cur_node_id);
 
   enum RaftState getRole();
+  void kill();
 
 private:
   RaftNode(std::vector<NodeConfig> cluster_configs, std::string store_path,
@@ -77,14 +64,20 @@ private:
   void Elect();
   void persist();
   void SendHeartBeats();
+  void handleInstallSnapshot(int config_id);
+  void handleAppendEntries(int target_node, raft::AppendEntriesArgs args);
 
   void start_ticker();
 
-  void resetVoteTimer();
+  void ResetVoteTimer();
+  void ResetHeartTimer(int timeout);
   void initVoteTimer();
+
   void collectVote(int config_id, raft::RequestVoteArgs args,
-                   std::mutex &voteMtx, int &voteCount);
+                   std::shared_ptr<std::mutex> voteMtx,
+                   std::shared_ptr<int> voteCount);
   bool killed();
 
   uint64_t VirtualLogIdx(uint64_t physical_idx);
+  uint64_t RealLogIdx(uint64_t virtual_idx);
 };

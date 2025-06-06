@@ -1,8 +1,13 @@
 [
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_test/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_test/linux/x86_64/debug/test/grpc_test.cpp.o", "test/grpc_test.cpp"],
-  "file": "test/grpc_test.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_curp/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-o", "build/.objs/d_curp/linux/x86_64/debug/src/raft/raft.cpp.o", "src/raft/raft.cpp"],
+  "file": "src/raft/raft.cpp"
+},
+{
+  "directory": "/home/toni/proj/tiny-distributed-kv",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_curp/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-o", "build/.objs/d_curp/linux/x86_64/debug/src/raft/raft_rpc.cpp.o", "src/raft/raft_rpc.cpp"],
+  "file": "src/raft/raft_rpc.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
@@ -13,16 +18,6 @@
   "directory": "/home/toni/proj/tiny-distributed-kv",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-o", "build/.objs/d_utils/linux/x86_64/debug/src/utils/timer.cpp.o", "src/utils/timer.cpp"],
   "file": "src/utils/timer.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_curp/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-o", "build/.objs/d_curp/linux/x86_64/debug/src/curp/raft.cpp.o", "src/curp/raft.cpp"],
-  "file": "src/curp/raft.cpp"
-},
-{
-  "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/d_curp/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-isystem", "/home/toni/.xmake/packages/s/spdlog/v1.15.2/51f8d8b9d14d4d17af0b7c28620bf3c7/include", "-o", "build/.objs/d_curp/linux/x86_64/debug/src/curp/raft_rpc.cpp.o", "src/curp/raft_rpc.cpp"],
-  "file": "src/curp/raft_rpc.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
@@ -56,11 +51,16 @@
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/utils_test/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/utils_test/linux/x86_64/debug/test/utils_test.cpp.o", "test/utils_test.cpp"],
+  "file": "test/utils_test.cpp"
+},
+{
+  "directory": "/home/toni/proj/tiny-distributed-kv",
   "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/raft_test/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_curp/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/raft_test/linux/x86_64/debug/test/raft_test.cpp.o", "test/raft_test.cpp"],
   "file": "test/raft_test.cpp"
 },
 {
   "directory": "/home/toni/proj/tiny-distributed-kv",
-  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Ibuild/.gens/utils_test/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/d_utils/linux/x86_64/debug/platform/windows/idl", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/utils_test/linux/x86_64/debug/test/utils_test.cpp.o", "test/utils_test.cpp"],
-  "file": "test/utils_test.cpp"
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-std=c++20", "-Iinclude", "-Iproto", "-Ibuild/.gens/grpc_test/linux/x86_64/debug/platform/windows/idl", "-Ibuild/.gens/grpc_gen/linux/x86_64/debug/platform/windows/idl", "-DCARES_STATICLIB", "-isystem", "/home/toni/.xmake/packages/g/grpc/v1.69.0/ba60b3ca0dc04dae9ee7d17ca1a6729a/include", "-isystem", "/home/toni/.xmake/packages/c/c-ares/1.34.4/9556091e47b04feda1b2c9684aabeabc/include", "-isystem", "/home/toni/.xmake/packages/r/re2/2024.07.02/fb32d923b9f041eb947d53204a6db66d/include", "-isystem", "/home/toni/.xmake/packages/p/protobuf-cpp/30.2/b8841ef3e2be4e88915a3a7ef3364dd9/include", "-isystem", "/home/toni/.xmake/packages/a/abseil/20250127.1/540f14bc36804ba0a9ff119dd44db983/include", "-isystem", "/home/toni/proj/vcpkg/installed/x64-linux/lib/pkgconfig/../../include", "-o", "build/.objs/grpc_test/linux/x86_64/debug/test/grpc_test.cpp.o", "test/grpc_test.cpp"],
+  "file": "test/grpc_test.cpp"
 }]

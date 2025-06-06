@@ -43,11 +43,20 @@ class Raft final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::raft::RequestVoteReply>> PrepareAsyncRequestVote(::grpc::ClientContext* context, const ::raft::RequestVoteArgs& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::raft::RequestVoteReply>>(PrepareAsyncRequestVoteRaw(context, request, cq));
     }
+    virtual ::grpc::Status AppendEntries(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs& request, ::raft::AppendEntriesReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::raft::AppendEntriesReply>> AsyncAppendEntries(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::raft::AppendEntriesReply>>(AsyncAppendEntriesRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::raft::AppendEntriesReply>> PrepareAsyncAppendEntries(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::raft::AppendEntriesReply>>(PrepareAsyncAppendEntriesRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
       virtual void RequestVote(::grpc::ClientContext* context, const ::raft::RequestVoteArgs* request, ::raft::RequestVoteReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void RequestVote(::grpc::ClientContext* context, const ::raft::RequestVoteArgs* request, ::raft::RequestVoteReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void AppendEntries(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs* request, ::raft::AppendEntriesReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void AppendEntries(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs* request, ::raft::AppendEntriesReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -55,6 +64,8 @@ class Raft final {
    private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::raft::RequestVoteReply>* AsyncRequestVoteRaw(::grpc::ClientContext* context, const ::raft::RequestVoteArgs& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::raft::RequestVoteReply>* PrepareAsyncRequestVoteRaw(::grpc::ClientContext* context, const ::raft::RequestVoteArgs& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::raft::AppendEntriesReply>* AsyncAppendEntriesRaw(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::raft::AppendEntriesReply>* PrepareAsyncAppendEntriesRaw(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -66,11 +77,20 @@ class Raft final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::raft::RequestVoteReply>> PrepareAsyncRequestVote(::grpc::ClientContext* context, const ::raft::RequestVoteArgs& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::raft::RequestVoteReply>>(PrepareAsyncRequestVoteRaw(context, request, cq));
     }
+    ::grpc::Status AppendEntries(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs& request, ::raft::AppendEntriesReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::raft::AppendEntriesReply>> AsyncAppendEntries(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::raft::AppendEntriesReply>>(AsyncAppendEntriesRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::raft::AppendEntriesReply>> PrepareAsyncAppendEntries(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::raft::AppendEntriesReply>>(PrepareAsyncAppendEntriesRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
       void RequestVote(::grpc::ClientContext* context, const ::raft::RequestVoteArgs* request, ::raft::RequestVoteReply* response, std::function<void(::grpc::Status)>) override;
       void RequestVote(::grpc::ClientContext* context, const ::raft::RequestVoteArgs* request, ::raft::RequestVoteReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void AppendEntries(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs* request, ::raft::AppendEntriesReply* response, std::function<void(::grpc::Status)>) override;
+      void AppendEntries(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs* request, ::raft::AppendEntriesReply* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -84,7 +104,10 @@ class Raft final {
     class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::raft::RequestVoteReply>* AsyncRequestVoteRaw(::grpc::ClientContext* context, const ::raft::RequestVoteArgs& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::raft::RequestVoteReply>* PrepareAsyncRequestVoteRaw(::grpc::ClientContext* context, const ::raft::RequestVoteArgs& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::raft::AppendEntriesReply>* AsyncAppendEntriesRaw(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::raft::AppendEntriesReply>* PrepareAsyncAppendEntriesRaw(::grpc::ClientContext* context, const ::raft::AppendEntriesArgs& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_RequestVote_;
+    const ::grpc::internal::RpcMethod rpcmethod_AppendEntries_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -93,6 +116,7 @@ class Raft final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status RequestVote(::grpc::ServerContext* context, const ::raft::RequestVoteArgs* request, ::raft::RequestVoteReply* response);
+    virtual ::grpc::Status AppendEntries(::grpc::ServerContext* context, const ::raft::AppendEntriesArgs* request, ::raft::AppendEntriesReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_RequestVote : public BaseClass {
@@ -114,7 +138,27 @@ class Raft final {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_RequestVote<Service > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_AppendEntries : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_AppendEntries() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_AppendEntries() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AppendEntries(::grpc::ServerContext* /*context*/, const ::raft::AppendEntriesArgs* /*request*/, ::raft::AppendEntriesReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAppendEntries(::grpc::ServerContext* context, ::raft::AppendEntriesArgs* request, ::grpc::ServerAsyncResponseWriter< ::raft::AppendEntriesReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_RequestVote<WithAsyncMethod_AppendEntries<Service > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_RequestVote : public BaseClass {
    private:
@@ -142,7 +186,34 @@ class Raft final {
     virtual ::grpc::ServerUnaryReactor* RequestVote(
       ::grpc::CallbackServerContext* /*context*/, const ::raft::RequestVoteArgs* /*request*/, ::raft::RequestVoteReply* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_RequestVote<Service > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_AppendEntries : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_AppendEntries() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::raft::AppendEntriesArgs, ::raft::AppendEntriesReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::raft::AppendEntriesArgs* request, ::raft::AppendEntriesReply* response) { return this->AppendEntries(context, request, response); }));}
+    void SetMessageAllocatorFor_AppendEntries(
+        ::grpc::MessageAllocator< ::raft::AppendEntriesArgs, ::raft::AppendEntriesReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::raft::AppendEntriesArgs, ::raft::AppendEntriesReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_AppendEntries() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AppendEntries(::grpc::ServerContext* /*context*/, const ::raft::AppendEntriesArgs* /*request*/, ::raft::AppendEntriesReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* AppendEntries(
+      ::grpc::CallbackServerContext* /*context*/, const ::raft::AppendEntriesArgs* /*request*/, ::raft::AppendEntriesReply* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_RequestVote<WithCallbackMethod_AppendEntries<Service > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_RequestVote : public BaseClass {
@@ -157,6 +228,23 @@ class Raft final {
     }
     // disable synchronous version of this method
     ::grpc::Status RequestVote(::grpc::ServerContext* /*context*/, const ::raft::RequestVoteArgs* /*request*/, ::raft::RequestVoteReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_AppendEntries : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_AppendEntries() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_AppendEntries() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AppendEntries(::grpc::ServerContext* /*context*/, const ::raft::AppendEntriesArgs* /*request*/, ::raft::AppendEntriesReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -182,6 +270,26 @@ class Raft final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_AppendEntries : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_AppendEntries() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_AppendEntries() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AppendEntries(::grpc::ServerContext* /*context*/, const ::raft::AppendEntriesArgs* /*request*/, ::raft::AppendEntriesReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestAppendEntries(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_RequestVote : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -201,6 +309,28 @@ class Raft final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* RequestVote(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_AppendEntries : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_AppendEntries() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->AppendEntries(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_AppendEntries() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status AppendEntries(::grpc::ServerContext* /*context*/, const ::raft::AppendEntriesArgs* /*request*/, ::raft::AppendEntriesReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* AppendEntries(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -230,9 +360,36 @@ class Raft final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedRequestVote(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::raft::RequestVoteArgs,::raft::RequestVoteReply>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_RequestVote<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_AppendEntries : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_AppendEntries() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::raft::AppendEntriesArgs, ::raft::AppendEntriesReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::raft::AppendEntriesArgs, ::raft::AppendEntriesReply>* streamer) {
+                       return this->StreamedAppendEntries(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_AppendEntries() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status AppendEntries(::grpc::ServerContext* /*context*/, const ::raft::AppendEntriesArgs* /*request*/, ::raft::AppendEntriesReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedAppendEntries(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::raft::AppendEntriesArgs,::raft::AppendEntriesReply>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_RequestVote<WithStreamedUnaryMethod_AppendEntries<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_RequestVote<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_RequestVote<WithStreamedUnaryMethod_AppendEntries<Service > > StreamedService;
 };
 
 }  // namespace raft

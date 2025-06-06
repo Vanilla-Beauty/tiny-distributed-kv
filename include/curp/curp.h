@@ -1,6 +1,7 @@
 #pragma once
 
-#include "raft.h"
+#include "../../3rd_party/tiny-lsm/include/lsm/engine.h"
+#include "../raft/raft.h"
 
 class Witness {
   tiny_lsm::LSM store_engine;

@@ -21,18 +21,32 @@ public:
   static std::shared_ptr<RaftServiceImpl>
   GetOrCreate(std::shared_ptr<RaftNode> node);
 
+  // RPC Logic
+
   grpc::Status RequestVote(grpc::ServerContext *context,
                            const raft::RequestVoteArgs *request,
                            raft::RequestVoteReply *reply) override;
 
+  grpc::Status AppendEntries(grpc::ServerContext *context,
+                             const raft::AppendEntriesArgs *request,
+                             raft::AppendEntriesReply *reply) override;
+
+  // RPC Sender
   bool GetVoteAnswer(const std::string &address,
                      const raft::RequestVoteArgs &request);
+
+  bool sendAppendEntries(const std::string &address,
+                         const raft::AppendEntriesArgs &request,
+                         raft::AppendEntriesReply *reply);
 
 private:
   void StartServer();
   void RunServer(const std::string &address);
 
+  std::shared_ptr<raft::Raft::Stub> get_unique_stub(const std::string &address);
+
 private:
+  std::unique_ptr<grpc::Server> server_;
   std::shared_ptr<RaftNode> raft_node;
   std::thread server_thread_;
   std::unordered_map<std::string, std::shared_ptr<raft::Raft::Stub>>

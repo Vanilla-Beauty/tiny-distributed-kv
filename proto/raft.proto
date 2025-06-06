@@ -16,7 +16,36 @@ message RequestVoteReply {
   bool voteGranted = 2;
 }
 
+// 日志条目结构
+message Entry {
+  int64 seq = 1;
+  int32 term = 2;
+
+  string key = 3;
+  bytes value = 4;
+}
+
+// AppendEntries RPC 参数
+message AppendEntriesArgs {
+  int32 term = 1;
+  int32 leaderId = 2;
+  int32 prevLogIndex = 3;
+  int32 prevLogTerm = 4;
+  repeated Entry entries = 5;   // 可选的多个日志条目
+  int32 leaderCommit = 6;
+}
+
+// AppendEntries RPC 返回
+message AppendEntriesReply {
+  int32 term = 1;
+  bool success = 2;
+  int32 xTerm = 3;
+  int32 xIndex = 4;
+  int32 xLen = 5;
+}
+
 // RPC 服务定义
 service Raft {
   rpc RequestVote(RequestVoteArgs) returns (RequestVoteReply);
+  rpc AppendEntries(AppendEntriesArgs) returns (AppendEntriesReply);
 }
