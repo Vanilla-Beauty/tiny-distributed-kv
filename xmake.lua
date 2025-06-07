@@ -3,10 +3,14 @@ set_project("distributed_db")
 set_version("0.1.0")
 set_languages("c++20")
 
+add_rules("mode.debug", "mode.release")
+
+add_repositories("local-repo build")
+
 -- 2. 添加依赖
 add_requires("abseil", "protobuf-cpp", "grpc", "gtest", "spdlog")
 
--- add_subdirs("3rd_party/tiny-lsm")
+add_subdirs("3rd_party/tiny-lsm")
 
 -- 5. grpc_gen 静态库
 target("grpc_gen")
@@ -22,6 +26,13 @@ target("d_utils")
     add_files("src/utils/*.cpp")
     add_includedirs("include")
 
+target("d_storage")
+    set_kind("static")
+    add_files("src/storage/*.cpp")
+    add_deps("grpc_gen", "utils")
+    add_includedirs("include")
+    add_packages("abseil", "protobuf-cpp", "grpc", "spdlog")
+
 target("d_curp")
     set_kind("static")
     add_files("src/raft/*.cpp")
@@ -31,31 +42,38 @@ target("d_curp")
 
 
 -- 6. 单元测试
-target("grpc_test")
+target("dtest_grpc")
     set_kind("binary")
     add_deps("grpc_gen")
     add_files("test/grpc_test.cpp")
     add_includedirs("include", "proto")
     add_packages("abseil", "protobuf-cpp", "grpc", "gtest")
 
--- target("lsm_test")
+-- target("dtest_lsm")
 --     set_kind("binary")
 --     add_deps("lsm")
 --     add_files("test/tiny_lsm_test.cpp")
 --     add_includedirs("include")
 --     add_packages("gtest")
 
-target("utils_test")
+target("dtest_storage")
+    set_kind("binary")
+    add_deps("d_storage")
+    add_files("test/dtest_storage.cpp")
+    add_includedirs("include")
+    add_packages("abseil", "protobuf-cpp", "grpc", "gtest")
+
+target("dtest_utils")
     set_kind("binary")
     add_deps("d_utils")
-    add_files("test/utils_test.cpp")
+    add_files("test/dtest_utils.cpp")
     add_includedirs("include")
     add_packages("gtest")
 
-target("raft_test")
+target("dtest_raft")
     set_kind("binary")
     add_deps("d_curp")
     -- add_deps("lsm")
-    add_files("test/raft_test.cpp")
+    add_files("test/dtest_raft.cpp")
     add_includedirs("include")
     add_packages("abseil", "protobuf-cpp", "grpc", "gtest")
