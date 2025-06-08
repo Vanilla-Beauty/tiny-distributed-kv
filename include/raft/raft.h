@@ -1,8 +1,9 @@
 #pragma once
 
 // #include "../../3rd_party/tiny-lsm/include/lsm/engine.h"
-#include "../../include/raft/raft_rpc.h"
-#include "../../include/utils/timer.h"
+#include "../raft/raft_rpc.h"
+#include "../storage/log_vec.h"
+#include "../utils/timer.h"
 #include "config.h"
 #include <atomic>
 #include <cstdint>
@@ -28,9 +29,9 @@ class RaftNode : public std::enable_shared_from_this<RaftNode> {
   uint64_t cur_node_id;
   std::atomic<bool> is_dead;
 
-  int currentTerm;              // 当前节点的Term
-  int votedFor;                 // 当前节点投票给了哪个节点
-  std::vector<raft::Entry> log; // 日志条目
+  int currentTerm; // 当前节点的Term
+  int votedFor;    // 当前节点投票给了哪个节点
+  LogVec log;      // 日志条目
 
   std::vector<uint64_t> nextIndex;
   std::vector<uint64_t> matchIndex;
@@ -49,14 +50,14 @@ public:
   ~RaftNode();
 
   static std::shared_ptr<RaftNode>
-  Create(std::vector<NodeConfig> cluster_configs, std::string store_path,
+  Create(std::vector<NodeConfig> cluster_configs, std::string log_dir,
          uint64_t cur_node_id);
 
   enum RaftState getRole();
   void kill();
 
 private:
-  RaftNode(std::vector<NodeConfig> cluster_configs, std::string store_path,
+  RaftNode(std::vector<NodeConfig> cluster_configs, std::string log_dir,
            uint64_t cur_node_id);
 
   void checkVote();

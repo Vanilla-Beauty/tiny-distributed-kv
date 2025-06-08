@@ -31,10 +31,10 @@ RaftNode::~RaftNode() {
 }
 
 std::shared_ptr<RaftNode>
-RaftNode::Create(std::vector<NodeConfig> cluster_configs,
-                 std::string store_path, uint64_t cur_node_id) {
+RaftNode::Create(std::vector<NodeConfig> cluster_configs, std::string log_dir,
+                 uint64_t cur_node_id) {
   auto node = std::shared_ptr<RaftNode>(
-      new RaftNode(cluster_configs, store_path, cur_node_id));
+      new RaftNode(cluster_configs, log_dir, cur_node_id));
   node->raft_service_impl = RaftServiceImpl::GetOrCreate(node);
   // 在一个线程中运行 start_ticker
   std::thread(&RaftNode::start_ticker, node.get()).detach();
@@ -48,14 +48,13 @@ void RaftNode::start_ticker() {
   std::thread(&RaftNode::ticker, this).detach();
 }
 
-RaftNode::RaftNode(std::vector<NodeConfig> cluster_configs,
-                   std::string store_path, uint64_t cur_node_id)
-    : cluster_configs(cluster_configs), store_path(store_path),
+RaftNode::RaftNode(std::vector<NodeConfig> cluster_configs, std::string log_dir,
+                   uint64_t cur_node_id)
+    : cluster_configs(cluster_configs), store_path("TODO"), // TODO
       cur_node_id(cur_node_id), is_dead(false), currentTerm(0), votedFor(-1),
       commitIndex(0), lastApplied(0), lastIncludedIndex(0), lastIncludedTerm(0),
-      role(RaftState::FOLLOWER) {
+      role(RaftState::FOLLOWER), log(log_dir) {
   // 初始化LSM存储引擎
-  // store_engine = std::make_shared<tiny_lsm::LSM>(store_path);
   nextIndex.resize(cluster_configs.size(), 0);
   matchIndex.resize(cluster_configs.size(), 0);
   log.push_back(raft::Entry{}); // 添加一个空的初始日志条目

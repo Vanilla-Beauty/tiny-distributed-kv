@@ -19,6 +19,11 @@ std::string get_meta_path(const std::string &dir) {
 }
 
 LogVec::LogVec(const std::string &dir) : dir_(dir) {
+  // 如果文件夹不存在就创建
+  if (!std::filesystem::exists(dir)) {
+    std::filesystem::create_directories(dir);
+  }
+
   data_path_ = get_data_path(dir);
   meta_path_ = get_meta_path(dir);
 
@@ -62,6 +67,11 @@ LogVecIterator::pointer LogVecIterator::operator->() const {
   return &cache_;
 }
 
+LogVecIterator::difference_type
+LogVecIterator::operator-(const LogVecIterator &other) const {
+  return idx_ - other.idx_;
+}
+
 LogVecIterator &LogVecIterator::operator--() {
   if (is_reverse_) {
     ++idx_;
@@ -100,6 +110,30 @@ LogVecIterator LogVecIterator::operator++(int) {
     ++(*this);
   }
   return tmp;
+}
+
+LogVecIterator LogVecIterator::operator+(int n) const {
+  LogVecIterator tmp = *this;
+  tmp.idx_ += n;
+  tmp.cache_valid_ = false;
+  return tmp;
+}
+LogVecIterator LogVecIterator::operator-(int n) const {
+  LogVecIterator tmp = *this;
+  tmp.idx_ -= n;
+  tmp.cache_valid_ = false;
+  return tmp;
+}
+
+LogVecIterator &LogVecIterator::operator+=(int n) {
+  idx_ += n;
+  cache_valid_ = false;
+  return *this;
+}
+LogVecIterator &LogVecIterator::operator-=(int n) {
+  idx_ -= n;
+  cache_valid_ = false;
+  return *this;
 }
 
 bool LogVecIterator::operator==(const LogVecIterator &other) const {
@@ -161,6 +195,20 @@ LogVecIterator LogVec::rbegin() {
   return LogVecIterator(this, size() - 1, true);
 }
 LogVecIterator LogVec::rend() { return LogVecIterator(this, -1, true); }
+
+void LogVec::truncate_from(size_t idx) {
+  std::lock_guard<std::mutex> lock(mtx_);
+  if (idx >= entry_count_)
+    return;
+  // 只保留 [0, idx)，截断 data 和 meta 文件
+  uint64_t new_data_size = 0;
+  if (idx > 0) {
+    new_data_size = get_offset(idx);
+  }
+  data_file_->truncate(new_data_size);
+  meta_file_->truncate(idx * sizeof(uint64_t));
+  entry_count_ = idx;
+}
 
 // 编码/解码实现（简单示例，实际可用protobuf序列化或自定义二进制格式）
 std::vector<uint8_t> LogVec::encode_entry(const raft::Entry &entry) {

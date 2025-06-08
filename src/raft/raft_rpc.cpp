@@ -241,8 +241,10 @@ RaftServiceImpl::AppendEntries(grpc::ServerContext *context,
     if (ridx < raft_node->log.size() &&
         raft_node->log[ridx].term() != log.term()) {
       // 某位置发生了冲突, 覆盖这个位置开始的所有内容
-      raft_node->log.erase(raft_node->log.begin() + ridx, raft_node->log.end());
-      // 追加剩余的 entries
+      // ! TODO 更新api
+      raft_node->log.truncate_from(ridx);
+      // raft_node->log.erase(raft_node->log.begin() + ridx,
+      // raft_node->log.end()); 追加剩余的 entries
       for (int j = idx; j < request->entries().size(); ++j) {
         raft_node->log.push_back(request->entries()[j]);
       }

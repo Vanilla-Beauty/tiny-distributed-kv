@@ -121,3 +121,29 @@ TEST_F(LogVecIteratorTest, RangeForIteration) {
 
   EXPECT_EQ(index, 3);
 }
+
+TEST_F(LogVecIteratorTest, LogVecAssignTest) {
+  LogVec log(test_dir);
+
+  // 写入多条日志
+  for (int i = 0; i < 5; ++i) {
+    log.push_back(make_entry(i, 100 + i, "k" + std::to_string(i),
+                             "v" + std::to_string(i)));
+  }
+  log.sync();
+
+  // 取部分日志，赋值给grpc repeated field
+  int start = 2;
+  raft::AppendEntriesArgs args;
+  args.mutable_entries()->Assign(log.begin() + start, log.end());
+
+  ASSERT_EQ(args.entries_size(), log.size() - start);
+
+  for (int i = 0; i < args.entries_size(); ++i) {
+    const auto &entry = args.entries(i);
+    EXPECT_EQ(entry.seq(), start + i);
+    EXPECT_EQ(entry.term(), 100 + start + i);
+    EXPECT_EQ(entry.key(), "k" + std::to_string(start + i));
+    EXPECT_EQ(entry.value(), "v" + std::to_string(start + i));
+  }
+}

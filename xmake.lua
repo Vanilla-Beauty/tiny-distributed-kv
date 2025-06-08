@@ -10,7 +10,7 @@ add_repositories("local-repo build")
 -- 2. 添加依赖
 add_requires("abseil", "protobuf-cpp", "grpc", "gtest", "spdlog")
 
-add_subdirs("3rd_party/tiny-lsm")
+includes("3rd_party/tiny-lsm")
 
 -- 5. grpc_gen 静态库
 target("grpc_gen")
@@ -33,10 +33,10 @@ target("d_storage")
     add_includedirs("include")
     add_packages("abseil", "protobuf-cpp", "grpc", "spdlog")
 
-target("d_curp")
+target("d_raft")
     set_kind("static")
     add_files("src/raft/*.cpp")
-    add_deps("d_utils", "grpc_gen")
+    add_deps("d_utils", "d_storage", "grpc_gen")
     add_includedirs("include")
     add_packages("abseil", "protobuf-cpp", "grpc", "spdlog")
 
@@ -72,7 +72,7 @@ target("dtest_utils")
 
 target("dtest_raft")
     set_kind("binary")
-    add_deps("d_curp")
+    add_deps("d_raft")
     -- add_deps("lsm")
     add_files("test/dtest_raft.cpp")
     add_includedirs("include")

@@ -3,6 +3,7 @@
 #include "../../3rd_party/tiny-lsm/include/utils/files.h"
 #include "../../proto/raft.grpc.pb.h"
 
+#include <cstdint>
 #include <mutex>
 #include <string>
 #include <vector>
@@ -14,15 +15,17 @@ class LogVec;
 class LogVecIterator {
 public:
   using value_type = raft::Entry;
-  using difference_type = std::ptrdiff_t;
   using pointer = const raft::Entry *;
   using reference = const raft::Entry &;
   using iterator_category = std::bidirectional_iterator_tag; // 支持双向
+  using difference_type = std::ptrdiff_t;
 
   LogVecIterator(LogVec *logvec, size_t idx, bool reverse = false);
 
   reference operator*() const;
   pointer operator->() const;
+
+  difference_type operator-(const LogVecIterator &other) const;
 
   LogVecIterator &operator++();
   LogVecIterator operator++(int);
@@ -30,12 +33,18 @@ public:
   LogVecIterator &operator--();   // 新增前置--
   LogVecIterator operator--(int); // 新增后置--
 
+  LogVecIterator operator+(int) const;
+  LogVecIterator operator-(int) const;
+
+  LogVecIterator &operator+=(int);
+  LogVecIterator &operator-=(int);
+
   bool operator==(const LogVecIterator &other) const;
   bool operator!=(const LogVecIterator &other) const;
 
 private:
   LogVec *logvec_;
-  int idx_;
+  int64_t idx_;
   bool is_reverse_;
   mutable raft::Entry cache_;
   mutable bool cache_valid_;
@@ -61,6 +70,8 @@ public:
 
   LogVecIterator rbegin();
   LogVecIterator rend();
+
+  void truncate_from(size_t idx);
 
 private:
   // 编码/解码
