@@ -147,3 +147,8 @@ TEST_F(LogVecIteratorTest, LogVecAssignTest) {
     EXPECT_EQ(entry.value(), "v" + std::to_string(start + i));
   }
 }
+
+int main(int argc, char **argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
+}

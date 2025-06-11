@@ -45,7 +45,7 @@ target("d_raft")
 target("dtest_grpc")
     set_kind("binary")
     add_deps("grpc_gen")
-    add_files("test/grpc_test.cpp")
+    add_files("test/dtest_grpc.cpp")
     add_includedirs("include", "proto")
     add_packages("abseil", "protobuf-cpp", "grpc", "gtest")
 
