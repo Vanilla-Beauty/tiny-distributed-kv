@@ -10,6 +10,7 @@
 #include <memory>
 #include <mutex>
 #include <string>
+#include <utility>
 #include <vector>
 
 enum class RaftState { FOLLOWER, CANDIDATE, LEADER };
@@ -53,6 +54,8 @@ public:
   Create(std::vector<NodeConfig> cluster_configs, std::string log_dir,
          uint64_t cur_node_id);
 
+  using NodeState = std::pair<int, bool>;
+  NodeState getStare();
   enum RaftState getRole();
   void kill();
 

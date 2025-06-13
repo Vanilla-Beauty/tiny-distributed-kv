@@ -9,6 +9,7 @@
 #include <memory>
 #include <mutex>
 #include <thread>
+#include <utility>
 #include <vector>
 
 std::string RaftStateToString(const RaftState &state) {
@@ -50,7 +51,8 @@ void RaftNode::start_ticker() {
 
 RaftNode::RaftNode(std::vector<NodeConfig> cluster_configs, std::string log_dir,
                    uint64_t cur_node_id)
-    : cluster_configs(cluster_configs), store_path("TODO"), // TODO
+    : cluster_configs(cluster_configs),
+      store_path("meta_file"), // TODO: 添加状态机存储结构的初始化流程
       cur_node_id(cur_node_id), is_dead(false), currentTerm(0), votedFor(-1),
       commitIndex(0), lastApplied(0), lastIncludedIndex(0), lastIncludedTerm(0),
       role(RaftState::FOLLOWER), log(log_dir) {
@@ -177,6 +179,9 @@ void RaftNode::ticker() {
 
 void RaftNode::persist() {
   // TODO: 实现状态持久化逻辑
+  tiny_lsm::FileObj persist_file = tiny_lsm::FileObj::open(store_path, true);
+  persist_file.append_int(votedFor);
+  // TODO
 }
 
 uint64_t RaftNode::VirtualLogIdx(uint64_t physical_idx) {
@@ -187,6 +192,11 @@ uint64_t RaftNode::VirtualLogIdx(uint64_t physical_idx) {
 uint64_t RaftNode::RealLogIdx(uint64_t virtual_idx) {
   // 调用该函数需要是加锁的状态
   return virtual_idx - lastIncludedIndex;
+}
+
+RaftNode::NodeState RaftNode::getStare() {
+  std::unique_lock<std::mutex> lock(mtx);
+  return {currentTerm, lastApplied};
 }
 
 enum RaftState RaftNode::getRole() {
