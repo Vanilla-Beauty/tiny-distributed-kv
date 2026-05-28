@@ -179,8 +179,8 @@ void RaftNode::ticker() {
 
 void RaftNode::persist() {
   // TODO: 实现状态持久化逻辑
-  tiny_lsm::FileObj persist_file = tiny_lsm::FileObj::open(store_path, true);
-  persist_file.append_int(votedFor);
+  // tiny_lsm::FileObj persist_file = tiny_lsm::FileObj::open(store_path, true);
+  // persist_file.append(reinterpret_cast<const char*>(&votedFor), sizeof(votedFor));
   // TODO
 }
 

@@ -22,10 +22,22 @@ class RaftServiceImpl;
 class RaftNode : public std::enable_shared_from_this<RaftNode> {
   friend class RaftServiceImpl;
 
-  std::shared_ptr<RaftServiceImpl> raft_service_impl;
+public:
+  ~RaftNode();
+
+  static std::shared_ptr<RaftNode>
+  Create(std::vector<NodeConfig> cluster_configs, std::string log_dir,
+         uint64_t cur_node_id);
+
+  using NodeState = std::pair<int, bool>;
+  NodeState getStare();
+  enum RaftState getRole();
+  void kill();
+
+protected:
+  // 受保护成员 - 子类可访问
   std::mutex mtx;
   std::vector<NodeConfig> cluster_configs;
-  // std::shared_ptr<tiny_lsm::LSM> store_engine;
   std::string store_path;
   uint64_t cur_node_id;
   std::atomic<bool> is_dead;
@@ -47,21 +59,12 @@ class RaftNode : public std::enable_shared_from_this<RaftNode> {
   Timer voteTimer;
   Timer heartTimer;
 
-public:
-  ~RaftNode();
-
-  static std::shared_ptr<RaftNode>
-  Create(std::vector<NodeConfig> cluster_configs, std::string log_dir,
-         uint64_t cur_node_id);
-
-  using NodeState = std::pair<int, bool>;
-  NodeState getStare();
-  enum RaftState getRole();
-  void kill();
-
-private:
+  // 受保护构造函数
   RaftNode(std::vector<NodeConfig> cluster_configs, std::string log_dir,
            uint64_t cur_node_id);
+
+private:
+  std::shared_ptr<RaftServiceImpl> raft_service_impl;
 
   void checkVote();
   void ticker();
