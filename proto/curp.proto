@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package curp;
+
+// CURP 服务 - Master 端
+service CurpService {
+  // 客户端提交操作
+  rpc Propose(ProposeRequest) returns (ProposeReply);
+  
+  // 读操作
+  rpc Read(ReadRequest) returns (ReadReply);
+  
+  // 同步请求
+  rpc Sync(SyncRequest) returns (SyncReply);
+  
+  // 恢复请求（从 Witness 获取数据）
+  rpc Recover(RecoverRequest) returns (RecoverReply);
+}
+
+// ========== Propose RPC ==========
+message ProposeRequest {
+  uint64 rpc_id = 1;
+  uint64 client_id = 2;
+  int32 op_type = 3;       // 0=PUT, 1=GET, 2=DELETE
+  string key = 4;
+  bytes value = 5;
+}
+
+message ProposeReply {
+  bool success = 1;
+  bool fast_path = 2;     // 是否快速路径
+  bool need_sync = 3;     // 是否需要客户端触发 sync
+  bytes result = 4;       // 执行结果
+  string error = 5;
+}
+
+// ========== Read RPC ==========
+message ReadRequest {
+  string key = 1;
+}
+
+message ReadReply {
+  bool success = 1;
+  bytes value = 2;
+  string error = 3;
+}
+
+// ========== Sync RPC ==========
+message SyncRequest {
+  uint64 rpc_id = 1;
+}
+
+message SyncReply {
+  bool success = 1;
+}
+
+// ========== Recover RPC ==========
+message RecoverRequest {
+  uint64 node_id = 1;
+}
+
+message RecoverReply {
+  bool success = 1;
+  repeated SavedOp ops = 2;
+}
+
+message SavedOp {
+  uint64 rpc_id = 1;
+  uint64 client_id = 2;
+  int32 op_type = 3;
+  string key = 4;
+  bytes value = 5;
+}
