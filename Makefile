@@ -1,10 +1,10 @@
 PROTOC = protoc
-GRPC_CPP_PLUGIN = $(shell which grpc_cpp_plugin)
+GRPC_CPP_PLUGIN = /usr/bin/grpc_cpp_plugin
 PROTO_DIR = proto
 
-PROTO_SRCS = $(PROTO_DIR)/node.proto $(PROTO_DIR)/raft.proto
-CPP_OUTS = $(PROTO_DIR)/node.pb.cc $(PROTO_DIR)/raft.pb.cc
-GRPC_OUTS = $(PROTO_DIR)/node.grpc.pb.cc $(PROTO_DIR)/raft.grpc.pb.cc
+PROTO_SRCS = $(PROTO_DIR)/node.proto $(PROTO_DIR)/raft.proto $(PROTO_DIR)/witness.proto
+CPP_OUTS = $(PROTO_DIR)/node.pb.cc $(PROTO_DIR)/raft.pb.cc $(PROTO_DIR)/witness.pb.cc
+GRPC_OUTS = $(PROTO_DIR)/node.grpc.pb.cc $(PROTO_DIR)/raft.grpc.pb.cc $(PROTO_DIR)/witness.grpc.pb.cc
 
 all: $(CPP_OUTS) $(GRPC_OUTS)
 
@@ -16,6 +16,12 @@ $(PROTO_DIR)/node.pb.cc $(PROTO_DIR)/node.pb.h $(PROTO_DIR)/node.grpc.pb.cc $(PR
 
 $(PROTO_DIR)/raft.pb.cc $(PROTO_DIR)/raft.pb.h $(PROTO_DIR)/raft.grpc.pb.cc $(PROTO_DIR)/raft.grpc.pb.h: $(PROTO_DIR)/raft.proto
 	$(PROTOC) -I $(PROTO_DIR) raft.proto \
+	--cpp_out=$(PROTO_DIR) \
+	--grpc_out=$(PROTO_DIR) \
+	--plugin=protoc-gen-grpc=$(GRPC_CPP_PLUGIN)
+
+$(PROTO_DIR)/witness.pb.cc $(PROTO_DIR)/witness.pb.h $(PROTO_DIR)/witness.grpc.pb.cc $(PROTO_DIR)/witness.grpc.pb.h: $(PROTO_DIR)/witness.proto
+	$(PROTOC) -I $(PROTO_DIR) witness.proto \
 	--cpp_out=$(PROTO_DIR) \
 	--grpc_out=$(PROTO_DIR) \
 	--plugin=protoc-gen-grpc=$(GRPC_CPP_PLUGIN)
