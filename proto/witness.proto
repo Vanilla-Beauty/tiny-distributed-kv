@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+package witness;
+
+// Witness 服务 - 用于 CURP 协议中的无序持久化
+// Witness 只存储请求，不参与排序
+service WitnessService {
+  // 客户端记录请求到 Witness
+  rpc Record(RecordRequest) returns (RecordReply);
+  
+  // Master 垃圾回收已同步的请求
+  rpc GarbageCollect(GCRequest) returns (GCReply);
+  
+  // 恢复时获取所有记录的请求
+  rpc GetRecoveryData(RecoveryRequest) returns (RecoveryData);
+  
+  // 停止接受新请求（恢复模式）
+  rpc Stop(StopRequest) returns (StopReply);
+  
+  // 重置 Witness 为新的 Master
+  rpc Reset(ResetRequest) returns (ResetReply);
+  
+  // 获取 Witness 状态
+  rpc GetStatus(StatusRequest) returns (StatusReply);
+}
+
+// ========== Record RPC ==========
+message RecordRequest {
+  string master_id = 1;      // 目标 Master 的标识
+  uint64 rpc_id = 2;         // RIFL 唯一请求 ID
+  string key = 3;            // 操作的 key（用于可交换性检查）
+  bytes request_data = 4;    // 序列化的请求内容
+  uint64 client_id = 5;      // 客户端 ID
+}
+
+message RecordReply {
+  bool accepted = 1;         // 是否接受
+  int32 reject_reason = 2;   // 拒绝原因: 0=无, 1=不可交换, 2=空间不足, 3=已停止
+  string message = 3;        // 附加信息
+}
+
+// ========== GarbageCollect RPC ==========
+message GCRequest {
+  string master_id = 1;
+  repeated GCEntry entries = 2;
+}
+
+message GCEntry {
+  string key = 1;
+  uint64 rpc_id = 2;
+}
+
+message GCReply {
+  bool success = 1;
+  uint32 dropped_count = 2;  // 实际清理的请求数
+  repeated uint64 stale_rpc_ids = 3;  // 长时间未清理的请求 ID
+}
+
+// ========== Recovery RPC ==========
+message RecoveryRequest {
+  string master_id = 1;
+}
+
+message RecoveryData {
+  bool success = 1;
+  repeated SavedRequest requests = 2;
+}
+
+message SavedRequest {
+  uint64 rpc_id = 1;
+  string key = 2;
+  bytes request_data = 3;
+  uint64 client_id = 4;
+  uint64 timestamp = 5;      // 记录时间戳
+}
+
+// ========== Stop RPC ==========
+message StopRequest {
+  string master_id = 1;
+}
+
+message StopReply {
+  bool success = 1;
+  uint32 request_count = 2;  // 当前存储的请求数量
+}
+
+// ========== Reset RPC ==========
+message ResetRequest {
+  string master_id = 1;
+  string new_master_id = 2;  // 新的 Master ID（可选）
+}
+
+message ResetReply {
+  bool success = 1;
+}
+
+// ========== Status RPC ==========
+message StatusRequest {
+}
+
+message StatusReply {
+  string master_id = 1;      // 当前绑定的 Master
+  bool accepting = 2;        // 是否在接受新请求
+  uint32 request_count = 3;  // 存储的请求数量
+  uint64 oldest_timestamp = 4;  // 最早请求的时间戳
+}
