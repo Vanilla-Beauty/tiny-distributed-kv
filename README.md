@@ -26,6 +26,24 @@
 
 ## 快速开始
 
+### 使用 xmake 构建（推荐）
+
+```bash
+# 配置项目 (debug 模式)
+xmake config -m debug
+
+# 构建所有测试
+xmake build all_tests
+
+# 或单独构建某个测试
+xmake build dtest_witness
+
+# 运行测试
+xmake run dtest_witness
+```
+
+### 手动编译 (旧方式)
+
 ```bash
 # 编译
 g++ -std=c++20 -I include -I proto -I 3rd_party/tiny-lsm/include \

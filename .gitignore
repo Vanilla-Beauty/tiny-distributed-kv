@@ -3,3 +3,6 @@ build
 .vscode/*
 .vscode/compile_commands.json
 .clangd
+
+# 手动编译的测试文件
+/dtest_*
